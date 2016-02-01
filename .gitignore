@@ -1,0 +1,6 @@
+*.swp
+*.swo
+dist
+in
+out
+node_modules
