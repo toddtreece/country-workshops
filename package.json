@@ -1,0 +1,19 @@
+{
+  "name": "country-workshops",
+  "version": "1.0.0",
+  "description": "a set of tools to transition country workshops from filemaker to quickbooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Todd Treece <todd@uniontownlabs.org>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-es2015-node": "^5.0.2",
+    "babel-preset-stage-0": "^6.3.13",
+    "csv": "^0.4.6",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.2",
+    "pad": "^1.0.0"
+  }
+}
