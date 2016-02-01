@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+var spawn = require('child_process').spawn;
+
+var argv = require('yargs')
+    .usage('Usage: $0 <command>')
+    .command('mail', 'convert mailing list')
+    .command('help', 'Show help')
+    .demand(1)
+    .argv;
+
+
+process.chdir(__dirname + '/..');
+process.env.CW_TYPE = argv._[0];
+
+var child = spawn('node', ['dist/index.js'], {
+  env: process.env,
+  detached: true
+});
+
+child.stdout.pipe(process.stdout);
+child.stderr.pipe(process.stderr);
+
+child.on('error', console.log);
+child.on('exit', function(code) {
+  process.exit(code);
+});
