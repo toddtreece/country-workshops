@@ -3,9 +3,10 @@ import Converter from './converter';
 export default class MailConverter extends Converter {
 
   fields = ['name', 'email'];
+  out_path = 'out/mail';
 
-  constructor(out_path) {
-    super(out_path);
+  constructor() {
+    super();
   }
 
   name(row) {

@@ -11,9 +11,8 @@ export default class Converter extends Stream.Writable {
   limit = 1000;
   out_path = '';
 
-  constructor(out_path) {
+  constructor() {
     super({objectMode: true});
-    this.out_path = out_path;
     this.once('finish', this._flush);
   }
 
@@ -55,6 +54,11 @@ export default class Converter extends Stream.Writable {
 
   fileName() {
     return `${this.out_path}_${pad(2, this.count.toString(), '0')}.csv`;
+  }
+
+  static getType(type) {
+    let conv = require(`./${type}`).default;
+    return new conv();
   }
 
 }
